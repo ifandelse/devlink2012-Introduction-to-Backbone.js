@@ -1,0 +1,18 @@
+div {
+    margin-bottom: 5px;
+    padding: 5px;
+}
+
+label {
+    float: left;
+    width: 100px;
+}
+
+.row {
+    clear:both;
+}
+
+.row input[type="text"] {
+    width: 250px;
+}
+​

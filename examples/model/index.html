@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Introduction to Backbone.js - View Example</title>
+    <link rel="stylesheet" type="text/css" href="style.css">
+</head>
+<body>
+    <div id="content"></div>​
+    <script type="text/javascript" src="../js/jquery.js"></script>
+    <script type="text/javascript" src="../js/underscore.js"></script>
+    <script type="text/javascript" src="../js/backbone.js"></script>
+    <script id="personTemplate" type="text/html">
+        <fieldset>
+            <div class="row">
+                <label for="firstName">First Name:</label>
+                <input type="text" id="firstName" value="<%= firstName %>">
+            </div>
+            <div class="row">
+                <label for="lastName">Last Name:</label>
+                <input type="text" id="lastName" value="<%= lastName %>">
+            </div>
+            <div class="row">
+                <label for="company">Company:</label>
+                <input type="text" id="company" value="<%= company %>">
+            </div>
+            <div class="row">
+                <label for="position">Position:</label>
+                <input type="text" id="position" value="<%= position %>">
+            </div>
+            <div class="row">
+                <input type="button" value="Update Model" id="btnUpdate">
+            </div>
+        </fieldset>
+    </script>
+    <script type="text/javascript" src="main.js"></script>
+</body>
+</html>

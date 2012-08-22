@@ -1,0 +1,9 @@
+<% if(!items.length) { %>
+	<em id="items">No items yet...</em>
+<% } else { %>
+	<div id="items">
+	<% _.each(items, function(item, idx) { %>
+	<div><a href="" data-list="items" data-val="<%= idx %>" class="item-remove"><i class="icon-remove"></i>&nbsp;</a><%= item %></div>
+	<% }) %>
+	</div>
+<% } %>

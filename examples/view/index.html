@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Introduction to Backbone.js - View Example</title>
+    <link rel="stylesheet" type="text/css" href="style.css">
+</head>
+<body>
+    <div id="view1"></div>
+    <script type="text/javascript" src="../js/jquery.js"></script>
+    <script type="text/javascript" src="../js/underscore.js"></script>
+    <script type="text/javascript" src="../js/backbone.js"></script>
+    <script id="view1Template" type="text/html">
+        <div>
+            <h2>Introducing Backbone View #1</h2>
+            <em>This view is targeting an existing DOM element</em>
+        </div>
+    </script>
+    <script id="view2Template" type="text/html">
+        <div>
+            <h2>Introducing Backbone View #2</h2>
+            <p>
+                <em>This DOM for this view is created by Backbone and appended to the DOM upon render.</em>
+            </p>
+            <a href="" class="clickable">Some Link....</a>
+        </div>
+    </script>
+    <script type="text/javascript" src="main.js"></script>
+</body>
+</html>

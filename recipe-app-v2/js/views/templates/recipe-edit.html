@@ -1,0 +1,53 @@
+<form class="form-horizontal">
+    <fieldset>
+        <legend>
+            <% if(id === null) { %>
+            Adding New Recipe:
+            <% } else { %>
+            Editing Recipe:
+            <% } %>
+        </legend>
+        <div class="control-group">
+            <label class="control-label" for="title">Title</label>
+            <div class="controls">
+                <input type="text" class="input-xlarge text-updateable" id="title" value="<%= title %>">
+            </div>
+        </div>
+        <div class="control-group">
+            <label class="control-label" for="title">Description</label>
+            <div class="controls">
+                <input type="text" class="input-xlarge text-updateable" id="description" value="<%= description %>">
+            </div>
+        </div>
+        <div class="control-group">
+            <label class="control-label" for="title">Items</label>
+            <div class="controls">
+                <input type="text" class="input-xlarge" id="items_add"> <input type="button" value="Add" id="btnAddItem">
+                <div>
+                    <span id="items"></span>
+                </div>
+            </div>
+        </div>
+        <div class="control-group">
+            <label class="control-label" for="title">Steps</label>
+            <div class="controls">
+                <input type="text" class="input-xlarge" id="steps_add"> <input type="button" value="Add" id="btnAddStep">
+                <div>
+                    <span id="steps"></span>
+                </div>
+            </div>
+        </div>
+        <div class="control-group">
+            <div class="controls">
+                <% if(id === null) { %>
+                <input class="btn btn-primary" type="button" value="Add" id="addNew">
+                <input class="btn" type="button" value="Cancel" id="addCancel">
+                <% } else { %>
+                <input class="btn btn-primary" type="button" value="Save" id="updateRecipe">
+                <input class="btn" type="button" value="Cancel Edit" id="saveCancel">
+                <% } %>
+            </div>
+        </div>
+    </fieldset>
+    <div id="errors"></div>
+</form>

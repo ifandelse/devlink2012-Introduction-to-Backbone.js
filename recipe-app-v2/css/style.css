@@ -1,0 +1,16 @@
+.footer-bg {
+    background-color: #a9a9a9;
+}
+
+.footer-bg div {
+    width: 100%;
+    text-align: center;
+}
+
+.recipe-list {
+    width:500px;
+}
+
+.wrapper {
+    margin-top: 60px;
+}

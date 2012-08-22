@@ -1,0 +1,39 @@
+<h2>Recipes</h2>
+
+<table class="table table-bordered table-striped table-condensed recipe-list">
+	<thead>
+		<tr>
+			<th>Recipe Title</th>
+			<th></th>
+		</tr>
+	</thead>
+	<tbody>
+		<% if(!recipes.length) { %>
+		<tr>
+			<td colspan="2">
+				<em>No recipes exist at the moment...</em>
+			</td>
+		</tr>
+		<% } %>
+		<% _.each(recipes, function( item ) { %>
+		<tr>
+			<td>
+				<a href="recipe/<%= item.id %>" class="ps-nav"><%= item.title %></a>
+			</td>
+			<td>
+				<a href="recipe/<%= item.id %>/edit" class="ps-nav"><i class="icon-edit"></i></a>
+				<a href="" class="ps-nav remove-recipe" data-val="<%= item.id %>"><i class="icon-remove"></i></a>
+			</td>
+		</tr>
+		<% }) %>
+	</tbody>
+	<tfoot>
+		<tr>
+			<td colspan="2" class="footer-bg">
+				<div>
+					<a href="recipe/new" class="ps-nav btn btn-inverse">Add a Recipe</a>
+				</div>
+			</td>
+		</tr>
+	</tfoot>
+</table>

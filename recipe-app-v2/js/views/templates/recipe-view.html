@@ -1,0 +1,18 @@
+<div>
+    <h2>Viewing Recipe:</h2>
+    <p><em>Title:</em> <strong id="title"><%= title %></strong></p>
+    <p><em>Description:</em> <span id="description"><%= description %></span></p>
+    <div><em>Items Required:</em></div>
+    <ul id="items">
+        <% _.each(items, function(item) { %>
+        <li><%= item %></li>
+        <% }) %>
+    </ul>
+    <div><em>Steps:</em></div>
+    <ol id="steps">
+        <% _.each(steps, function(step) { %>
+        <li><%= step %></li>
+        <% }) %>
+    </ol>
+    <input class="btn btn-primary" type="button" value="Go Back to Recipe List" id="addCancel"> <a id="editRecipe" href="/recipe/<%= id %>/edit" class="ps-nav btn">Edit This Recipe</a>
+</div>
