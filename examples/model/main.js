@@ -49,9 +49,11 @@ var PersonModel = Backbone.Model.extend({
 				firstName: this.$("#firstName").val(),
 				lastName: this.$("#lastName").val(),
 				company: this.$("#company").val(),
-				position: this.$("#position").val(),
+				position: this.$("#position").val()
 			};
 			this.model.set(attrs);
+			// could also set values like this
+			// this.model.set("firstName", this.$("#firstName").val());
 		},
 
 		// How the view responds to the model validation error event

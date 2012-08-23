@@ -16,7 +16,7 @@ define([
 		models: {},
 		views: {},
 		init: function() {
-			this.router = new Router( { recipeApp: this });
+			this.router = new Router();
 			Backbone.history.start( {
 				pushState : true
 			} );

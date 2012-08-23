@@ -47,10 +47,6 @@ define( [
 
 		addNewRecipe: function() {
 			this.vm.showUI("Edit", { context: "new" });
-		},
-
-		update: function() {
-			//this.collection.fetch();
 		}
 	} );
 } );

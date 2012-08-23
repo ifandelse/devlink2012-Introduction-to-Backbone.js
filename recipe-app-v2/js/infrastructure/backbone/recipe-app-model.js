@@ -44,7 +44,7 @@ define([
 								}
 								if (!pass) {
 									if(!errors[key]) {
-										errors[key] = new Array();
+										errors[key] = [];
 									}
 									errors[key].push(msg);
 								}

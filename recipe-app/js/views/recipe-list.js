@@ -28,7 +28,7 @@ define( [
 			this.template = _.template(template);
 			// this is more for convenience - the collection is accessible on the app object
 			// but I'm getting a local handle to it for brevity's sake
-			this.options.recipeApp.models.recipeList = this.collection = new RecipeListCollection();
+			recipeApp.models.recipeList = this.collection = new RecipeListCollection();
 			this.collection.on("add reset remove", this.render);
 			this.collection.fetch(); // not always the wisest of choices in "initialize"
 		},

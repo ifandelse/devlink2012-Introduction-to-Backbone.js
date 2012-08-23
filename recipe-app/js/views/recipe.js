@@ -50,11 +50,10 @@ define( [
 			"click #viewRecipe"       : "viewRecipe"
 		},
 
-		initialize : function ( options ) {
+		initialize : function () {
 			_.bindAll( this );
-			this.options = options;
 			this.templates = {
-				main : _.template( template ),
+				main  : _.template( template ),
 				items : _.template( itemsTemplate ),
 				steps : _.template( stepsTemplate ),
 				error : _.template( errorTemplate )
@@ -76,10 +75,10 @@ define( [
 				errors = self.model.validate( model );
 			self.showErrors( errors );
 			if ( !errors ) {
-				self.options.recipeApp.models.recipeList.add( model, { silent : true } );
-				self.options.recipeApp.models.recipeList.last().save( { wait : true }, {
+				recipeApp.models.recipeList.add( model, { silent : true } );
+				recipeApp.models.recipeList.last().save( { wait : true }, {
 					success : function () {
-						self.options.recipeApp.router.navigate( "", { trigger : true } );
+						recipeApp.router.navigate( "", { trigger : true } );
 						self.model.clear( { silent : true } );
 					}
 				} );
@@ -110,7 +109,9 @@ define( [
 				idx = elem.attr( "data-val" ),
 				mdl = _.clone( this.model.get( list ) );
 			mdl.splice( idx, 1 );
-			this.model.set( list, mdl );
+			// we set silent:true b/c validation would prevent this change
+			this.model.set( list, mdl , { silent: true });
+			this.model.change();
 		},
 
 		render : function () {
@@ -148,7 +149,7 @@ define( [
 			}
 		},
 
-		showErrors : function ( validation ) {
+		showErrors : function ( model, validation ) {
 			if ( validation && validation.errors && validation.errors.length ) {
 				this.$( "#errors" ).html( this.templates.error( validation ) );
 				return;
@@ -165,7 +166,7 @@ define( [
 			var self = this;
 			self.model.save( { wait : true }, {
 				success : function () {
-					self.options.recipeApp.router.navigate( "", { trigger : true } );
+					recipeApp.router.navigate( "", { trigger : true } );
 				}
 			} );
 		},

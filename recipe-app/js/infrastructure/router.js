@@ -28,50 +28,49 @@ define( [
 
 		initialize: function(options) {
 			var self = this;
-			self.options = options;
 			$(document).delegate("a.ps-nav", "click", function(e){
 				e.preventDefault();
 				self.navigate($(this).attr('href'), { trigger: true });
 			});
-			if(! self.options.recipeApp.views.container ) {
-				self.options.recipeApp.views.container = new ContainerView({ recipeApp: self.options.recipeApp });
+			if(! recipeApp.views.container ) {
+				recipeApp.views.container = new ContainerView();
 			}
-			self.options.recipeApp.views.container.render();
+			recipeApp.views.container.render();
 		},
 
 		root: function() {
-			if( !this.options.recipeApp.views.recipeList ) {
-				this.options.recipeApp.views.recipeList = new RecipeListView({ recipeApp: this.options.recipeApp });
+			if( !recipeApp.views.recipeList ) {
+				recipeApp.views.recipeList = new RecipeListView();
 			}
-			this.options.recipeApp.views.recipeList.render();
+			recipeApp.views.recipeList.render();
 		},
 
 		newRecipe: function() {
-			if( !this.options.recipeApp.views.currentRecipe ) {
-				this.options.recipeApp.views.currentRecipe = new RecipeView({ recipeApp: this.options.recipeApp });
+			if( !recipeApp.views.currentRecipe ) {
+				recipeApp.views.currentRecipe = new RecipeView();
 			}
-			this.options.recipeApp.views.currentRecipe.options.context = "new";
-			this.options.recipeApp.views.currentRecipe.model = new RecipeModel();
-			this.options.recipeApp.views.currentRecipe.bound = false;
-			this.options.recipeApp.views.currentRecipe.render();
+			recipeApp.views.currentRecipe.options.context = "new";
+			recipeApp.views.currentRecipe.model = new RecipeModel();
+			recipeApp.views.currentRecipe.bound = false;
+			recipeApp.views.currentRecipe.render();
 		},
 
 		recipe: function(id, context) {
 			var self = this;
-			if( !self.options.recipeApp.views.currentRecipe ) {
-				self.options.recipeApp.views.currentRecipe = new RecipeView({ recipeApp: self.options.recipeApp });
+			if( !recipeApp.views.currentRecipe ) {
+				recipeApp.views.currentRecipe = new RecipeView();
 			}
-			self.options.recipeApp.views.currentRecipe.options.context = context || "view";
-			self.options.recipeApp.views.currentRecipe.model = this.options.recipeApp.models.recipeList.get(id);
-			this.options.recipeApp.views.currentRecipe.bound = false;
-			this.options.recipeApp.views.currentRecipe.render();
+			recipeApp.views.currentRecipe.options.context = context || "view";
+			recipeApp.views.currentRecipe.model = recipeApp.models.recipeList.get(id);
+			recipeApp.views.currentRecipe.bound = false; // used by the RecipeView to determine if events should be delegated
+			recipeApp.views.currentRecipe.render();
 		},
 
 		about: function() {
-			if( !this.options.recipeApp.views.about ) {
-				this.options.recipeApp.views.about = new AboutView();
+			if( !recipeApp.views.about ) {
+				recipeApp.views.about = new AboutView();
 			}
-			this.options.recipeApp.views.about.render();
+			recipeApp.views.about.render();
 		}
 	} );
 } );
