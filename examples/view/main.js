@@ -8,7 +8,8 @@ var View1 = Backbone.View.extend( {
 		},
 
 		render : function () {
-			// this.$el provides jQuery object for the view's element
+			// this.$el provides a cached jQuery object for the view's element
+			// note that this.el also exists - and is a ref to the actual DOM element
 			this.$el.html( this.template );
 			// this.$ provides jQuery selector function scoped to the view
 			this.$( "em" ).css( { "font-family" : "Verdana", "font-size" : "8pt" } );
