@@ -39,6 +39,10 @@ var View1 = Backbone.View.extend( {
 		render : function () {
 			// this.$el provides jQuery object for the view's element
 			this.$el.html( this.template ).appendTo( 'body' );
+			this.undelegateEvents();
+			this.delegateEvents({
+				"click .clickable" : "onClick"
+			});
 		},
 
 		// handler wired up via the events hash
